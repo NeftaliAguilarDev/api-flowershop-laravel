@@ -1,0 +1,11 @@
+created:
+    - database/factories/CategoriesFactory.php
+    - database/factories/ProductsFactory.php
+    - database/migrations/2023_06_25_003217_create_categories_table.php
+    - database/migrations/2023_06_25_003218_create_products_table.php
+    - database/migrations/2023_06_25_003219_create_categories_products_table.php
+    - app/Models/Categories.php
+    - app/Models/Products.php
+models:
+    Categories: { name: string, slug: string, is_active: 'boolan default:0', relationships: { belongsToMany: Products } }
+    Products: { name: string, slug: string, code: string, price: 'decimal:8,2', price_offer: 'decimal:8,2', is_active: 'boolan default:0', relationships: { belongsToMany: Categories } }

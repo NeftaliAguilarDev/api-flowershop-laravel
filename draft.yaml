@@ -1,0 +1,17 @@
+models:
+  Categories:
+    name: string
+    slug: string
+    is_active: boolan default:0
+    relationships:
+      belongsToMany: Products
+  Products:
+    name: string
+    slug: string
+    code: string
+    price: decimal:8,2
+    price_offer: decimal:8,2
+    is_active: boolan default:0
+    relationships:
+      belongsToMany: Categories
+
