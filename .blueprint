@@ -1,11 +1,16 @@
 created:
+    - database/factories/CustomersFactory.php
     - database/factories/CategoriesFactory.php
     - database/factories/ProductsFactory.php
-    - database/migrations/2023_06_25_003217_create_categories_table.php
-    - database/migrations/2023_06_25_003218_create_products_table.php
-    - database/migrations/2023_06_25_003219_create_categories_products_table.php
+    - database/migrations/2023_06_25_235827_create_customers_table.php
+    - database/migrations/2023_06_25_235828_create_categories_table.php
+    - database/migrations/2023_06_25_235829_create_products_table.php
+    - database/migrations/2023_06_25_235830_create_categories_products_table.php
+    - app/Models/Customers.php
     - app/Models/Categories.php
     - app/Models/Products.php
 models:
+    User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
+    Customers: { name: string, email: 'string unique', phone: string, is_active: 'boolean default:1' }
     Categories: { name: string, slug: string, is_active: 'boolan default:0', relationships: { belongsToMany: Products } }
     Products: { name: string, slug: string, code: string, price: 'decimal:8,2', price_offer: 'decimal:8,2', is_active: 'boolan default:0', relationships: { belongsToMany: Categories } }

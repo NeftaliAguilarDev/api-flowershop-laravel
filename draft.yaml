@@ -1,4 +1,9 @@
 models:
+  Customers:
+    name: string
+    email: string unique
+    phone: string
+    is_active: boolean default:1
   Categories:
     name: string
     slug: string
