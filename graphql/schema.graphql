@@ -6,6 +6,11 @@ type Query {
     customers: [Customer!]! @all
 }
 
+type Mutation {
+    createCustomer(name: String!, email: String!, phone: String!): Customer
+        @create
+}
+
 type Customer {
     id: ID!
     name: String!
