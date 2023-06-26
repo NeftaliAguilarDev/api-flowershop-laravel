@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('price_offer', 8, 2);
             $table->string('is_active')->default('0');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -1,16 +1,17 @@
 created:
-    - database/factories/CustomersFactory.php
-    - database/factories/CategoriesFactory.php
-    - database/factories/ProductsFactory.php
-    - database/migrations/2023_06_25_235827_create_customers_table.php
-    - database/migrations/2023_06_25_235828_create_categories_table.php
-    - database/migrations/2023_06_25_235829_create_products_table.php
-    - database/migrations/2023_06_25_235830_create_categories_products_table.php
-    - app/Models/Customers.php
-    - app/Models/Categories.php
-    - app/Models/Products.php
+    - database/factories/CustomerFactory.php
+    - database/factories/CategoryFactory.php
+    - database/factories/ProductFactory.php
+    - database/migrations/2023_06_26_072020_create_customers_table.php
+    - database/migrations/2023_06_26_072021_create_categories_table.php
+    - database/migrations/2023_06_26_072022_create_products_table.php
+    - database/migrations/2023_06_26_072023_create_category_products_table.php
+    - database/migrations/2023_06_26_072024_create_categories_product_table.php
+    - app/Models/Customer.php
+    - app/Models/Category.php
+    - app/Models/Product.php
 models:
     User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
-    Customers: { name: string, email: 'string unique', phone: string, is_active: 'boolean default:1' }
-    Categories: { name: string, slug: string, is_active: 'boolan default:0', relationships: { belongsToMany: Products } }
-    Products: { name: string, slug: string, code: string, price: 'decimal:8,2', price_offer: 'decimal:8,2', is_active: 'boolan default:0', relationships: { belongsToMany: Categories } }
+    Customer: { name: string, email: 'string unique', phone: string, is_active: 'boolean default:1', softdeletes: softDeletes }
+    Category: { name: string, slug: string, is_active: 'boolan default:0', relationships: { belongsToMany: Products } }
+    Product: { name: string, slug: string, code: string, price: 'decimal:8,2', price_offer: 'decimal:8,2', is_active: 'boolan default:0', softdeletes: softDeletes, relationships: { belongsToMany: Categories } }

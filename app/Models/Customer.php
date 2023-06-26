@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Products extends Model
+class Customer extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -17,10 +17,8 @@ class Products extends Model
      */
     protected $fillable = [
         'name',
-        'slug',
-        'code',
-        'price',
-        'price_offer',
+        'email',
+        'phone',
         'is_active',
     ];
 
@@ -31,12 +29,6 @@ class Products extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'price' => 'decimal:2',
-        'price_offer' => 'decimal:2',
+        'is_active' => 'boolean',
     ];
-
-    public function categories(): BelongsToMany
-    {
-        return $this->belongsToMany(Categories::class);
-    }
 }

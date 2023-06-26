@@ -1,22 +1,24 @@
 models:
-  Customers:
+  Customer:
     name: string
     email: string unique
     phone: string
     is_active: boolean default:1
-  Categories:
+    softDeletes
+  Category:
     name: string
     slug: string
     is_active: boolan default:0
     relationships:
       belongsToMany: Products
-  Products:
+  Product:
     name: string
     slug: string
     code: string
     price: decimal:8,2
     price_offer: decimal:8,2
     is_active: boolan default:0
+    softDeletes
     relationships:
       belongsToMany: Categories
 

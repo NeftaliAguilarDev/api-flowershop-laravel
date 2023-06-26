@@ -4,16 +4,16 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\Customers;
+use App\Models\Customer;
 
-class CustomersFactory extends Factory
+class CustomerFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Customers::class;
+    protected $model = Customer::class;
 
     /**
      * Define the model's default state.
